@@ -1,0 +1,47 @@
+.m-4{
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+
+td{
+  padding-right: 40px;
+  text-align: justify;
+}
+
+
+#id{
+  width: 60px !important;
+}
+
+
+
+#idFirebase{
+display: inline;
+width: 150px;
+margin-right: 5px;
+}
+
+
+.titolo{
+  padding-left: 20px;
+  background-color: lightblue;
+  text-align: justify;
+}
+
+
+h3{
+  display: inline;
+  padding: 10px;
+}
+
+.sottotitolo{
+  margin-left: 10px;
+}
+
+
+
+tbody tr:hover{
+  color:#0a58ca;
+  cursor: pointer;
+}

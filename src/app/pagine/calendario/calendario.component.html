@@ -1,0 +1,88 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<div [@fadeInAnimation]>
+<div class="titolo">
+  <h3>DASHBOARD</h3>
+  <p class="sottotitolo">CALENDARIO</p>
+</div>
+
+<div class="m-4">
+<mat-tab-group>
+  <mat-tab label="Eventi">
+            <table class="table">
+              <thead>
+                  <tr>
+                      <th>Data</th>
+                      <th>Evento</th>
+                      <th>IdFirebase</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let evento of eventi; let i = index">
+                  <td>{{evento.date}}</td>
+                  <td>{{evento.evento}}</td>
+                  <td>{{idFirebase[i]}}</td>
+                </tr>
+              </tbody>
+        </table>
+</mat-tab>
+
+
+
+  <mat-tab label="Impostazioni Eventi">
+    <div class="m-4">
+      <form #formCalendario="ngForm" (ngSubmit)="AggiungiEvento(formCalendario, date.value, evento.value)">
+        <h4><i class="fa-solid fa-plus"></i> AGGIUNGI EVENTO</h4>
+        <div class="row align-items-center g-3">
+            <div class="col-auto">
+                <input type="date" class="form-control" id="inputDate" placeholder="Date" name="date" #date ngModel>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="inputText" placeholder="Scrivi Eventi" name="evento" #evento ngModel>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-primary">Aggiungi Evento </button>
+            </div>
+        </div>
+      </form>
+    </div>
+
+
+      <div class="m-4">
+        <form #formCalendario2="ngForm" (ngSubmit)="ModificaEvento(formCalendario2, IdFirebase2.value, date2.value, evento2.value)">
+          <h4><i class="fa-solid fa-pen"></i> MODIFICA EVENTO</h4>
+          <div class="row align-items-center g-3">
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputDate" placeholder="IdFirebase" name="IdFirebase2" #IdFirebase2 ngModel>
+          </div>
+              <div class="col-auto">
+                  <input type="date" class="form-control" id="inputDate" placeholder="Date" name="date2" #date2 ngModel>
+              </div>
+              <div class="col-auto">
+                  <input type="text" class="form-control" id="inputText" placeholder="Scrivi Eventi" name="evento2" #evento2 ngModel>
+              </div>
+              <div class="col-auto">
+                  <button type="submit" class="btn btn-outline-primary">Modifica Evento</button>
+              </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="m-4">
+        <form #formCalendario3="ngForm" (ngSubmit)="EliminaEvento(formCalendario3, IdFirebase3.value)">
+          <h4><i class="fa-solid fa-xmark"></i> ELIMINA EVENTO</h4>
+          <div class="row align-items-center g-3">
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputDate" placeholder="IdFirebase" name="IdFirebase3" #IdFirebase3 ngModel>
+          </div>
+              <div class="col-auto">
+                  <button type="submit" class="btn btn-outline-primary">Elimina Evento</button>
+              </div>
+          </div>
+        </form>
+      </div>
+
+</mat-tab>
+</mat-tab-group>
+</div>
+</div>

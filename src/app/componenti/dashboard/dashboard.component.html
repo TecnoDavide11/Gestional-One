@@ -1,0 +1,50 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+<div class="responsive">
+
+  <div class="user">
+    <img src="assets/user.png" alt="">
+    <p>{{userEmail}}</p>
+  </div>
+
+  <button mat-button [matMenuTriggerFor]="menu" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+  <mat-menu #menu="matMenu">
+
+  <button mat-menu-item> <a routerLink="Dash"><mat-icon>dashboard</mat-icon>Dashboard</a></button>
+  <button mat-menu-item> <a routerLink="Magazzino"><mat-icon>local_shipping</mat-icon>Magazzino</a></button>
+  <button mat-menu-item> <a routerLink="Dipendenti"><mat-icon>badge</mat-icon>Dipendenti</a></button>
+  <button mat-menu-item> <a routerLink="Fornitori"><mat-icon>local_shipping</mat-icon>Fornitori</a></button>
+  <button mat-menu-item> <a routerLink="Clienti"><mat-icon>account_circle</mat-icon>Clienti</a></button>
+  <button mat-menu-item> <a routerLink="Calendario"><mat-icon>event</mat-icon>Calendario</a></button>
+  <button mat-menu-item (click)="onLogout()"><mat-icon>logout</mat-icon>Logout</button>
+
+  </mat-menu>
+</div>
+
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened id="sidenav">
+      <div class="user">
+        <img src="assets/user.png" alt="">
+        <p>{{userEmail}}</p>
+      </div>
+
+      <ul>
+        <li><a routerLink="Dash"> <mat-icon>dashboard</mat-icon>Dashboard</a></li>
+        <li><a routerLink="Magazzino"><mat-icon>local_shipping</mat-icon>Magazzino</a></li>
+        <li><a routerLink="Dipendenti"><mat-icon>badge</mat-icon>Dipendenti</a></li>
+        <li><a routerLink="Fornitori"><mat-icon>local_shipping</mat-icon>Fornitori</a></li>
+        <li><a routerLink="Clienti"><mat-icon>account_circle</mat-icon>Clienti</a></li>
+        <li><a routerLink="Calendario"><mat-icon>event</mat-icon>Calendario</a></li>
+        <li><button (click)="onLogout()" class="logout"><mat-icon>logout</mat-icon>Logout</button></li>
+      </ul>
+  </mat-drawer>
+  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+</mat-drawer-container>
+

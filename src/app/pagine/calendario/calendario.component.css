@@ -1,0 +1,35 @@
+
+.titolo{
+  padding-left: 20px;
+  background-color: lightblue;
+  text-align: justify;
+}
+
+
+h3{
+  display: inline;
+  padding: 10px;
+}
+
+.sottotitolo{
+  margin-left: 10px;
+}
+
+
+.m-4{
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+
+td{
+  padding-right: 40px;
+  text-align: justify;
+}
+
+
+
+tbody tr:hover{
+  color:#0a58ca;
+  cursor: pointer;
+}

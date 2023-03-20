@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- header -->
+    <div class="header" id="Home">
+      <div class="m-4" id="nav">
+             <a routerLink="/"><img src="/assets/logo.png" alt="" class="logoImg"></a>
+          <nav class="nav justify-content-end">
+              <a href="/#Mission" class="nav-item nav-link active">Mission</a>
+              <a href="/#About Us" class="nav-item nav-link active">About Us</a>
+              <a href="/#Partner" class="nav-item nav-link">Partner</a>
+              <a href="/#Contatti" class="nav-item nav-link">Contatti</a>
+              <a href="#" class="nav-item nav-link" id="login" routerLink="Login">Login</a>
+              <!-- <a class="nav-item nav-link" id="login" routerLink="Dashboard">Dashboard</a> -->
+            </nav>
+
+
+          <div class="responsive">
+              <button mat-button [matMenuTriggerFor]="menu"><mat-icon><i class="fa-solid fa-bars"></i>
+                </mat-icon>
+              </button>
+
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item><mat-icon>poll</mat-icon><a href="/#Mission" class="nav-item nav-link active">Mission</a></button>
+                <button mat-menu-item><mat-icon>person_outline</mat-icon><a href="/#About Us" class="nav-item nav-link active">About Us</a></button>
+                <button mat-menu-item><mat-icon>handshake</mat-icon><a href="/#Partner" class="nav-item nav-link">Partner</a></button>
+                <button mat-menu-item><mat-icon>contact_mail</mat-icon><a href="/#Contatti" class="nav-item nav-link">Contatti</a></button>
+                <button mat-menu-item> <mat-icon>login</mat-icon><a href="#" class="nav-item nav-link" routerLink="Login" >Login</a></button>
+              </mat-menu>
+            </div>
+      </div>
+    </div>

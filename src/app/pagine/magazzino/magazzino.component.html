@@ -1,0 +1,100 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<div [@fadeInAnimation]>
+  <div class="titolo">
+    <h3>DASHBOARD</h3>
+    <p class="sottotitolo">MAGAZZINO</p>
+  </div>
+  <div class="m-4">
+
+
+  <mat-tab-group>
+    <mat-tab label="Magazzino">
+      <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Quantità</th>
+                <th>Costo</th>
+                <th>Id Firebase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prodotto of prodotti; let i = index">
+                <td>{{prodotto.id}}</td>
+                <td>{{prodotto.nome}}</td>
+                <td>{{prodotto.quantita}}</td>
+                <td>{{prodotto.costo}}</td>
+                <td>{{idFirebase[i]}}</td>
+            </tr>
+        </tbody>
+    </table>
+   </mat-tab>
+
+
+    <mat-tab label="Impostazioni Magazzino">
+      <div class="m-4">
+        <form #formMagazzino1="ngForm" (ngSubmit)="AggiungiProdotto(formMagazzino1, id.value, nome.value, quantita.value, costo.value)">
+          <h4><i class="fa-solid fa-plus"></i> AGGIUNGI PRODOTTO</h4>
+            <div class="row align-items-center g-3">
+              <div class="col-auto">
+                <input type="number" class="form-control" id="id" placeholder="Id" required="required" #id name="Id" ngModel>
+              </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Nome" required #nome name="nome" ngModel>
+                </div>
+                <div class="col-auto">
+                  <input type="number" class="form-control" id="quantit" placeholder="Quantità" required #quantita name="quantita" ngModel>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="inputPassword" placeholder="Costo" required #costo name="costo" ngModel>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-primary">Aggiungi Prodotto</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+  <div class="m-4">
+    <form #formMagazzino2="ngForm" (ngSubmit)="ModificaProdotto(formMagazzino2, Firebase.value,  id2.value, nome2.value, quantita2.value, costo2.value)">
+      <h4><i class="fa-solid fa-pen"></i> MODIFICA PRODOTTO</h4>
+        <div class="row align-items-center g-3">
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputEmail" placeholder="ID Firebase" required #Firebase name="Firebase" ngModel>
+          </div>
+          <div class="col-auto">
+            <input type="number" class="form-control" id="id" placeholder="Id" required #id2 name="id2" ngModel>
+          </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Nome" required #nome2 name="nome2" ngModel>
+            </div>
+            <div class="col-auto">
+              <input type="number" class="form-control" id="quantit" placeholder="Quantità" required #quantita2 name="quantita2" ngModel>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="inputPassword" placeholder="Costo" required #costo2 name="costo2" ngModel>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-primary">Modifica Prodotto</button>
+            </div>
+        </div>
+    </form>
+  </div>
+
+  <div class="m-4">
+    <form #formMagazzino3="ngForm" (ngSubmit)="EliminaProdotto(formMagazzino3, Firebase2.value)">
+      <h4><i class="fa-solid fa-xmark"></i> ELIMINA PRODOTTO</h4>
+      <input type="text" class="form-control" id="idFirebase" placeholder="ID Firebase" required #Firebase2 name="Firebase2" ngModel>
+
+      <button type="submit" class="btn btn-outline-primary" id="eli">Elimina</button>
+    </form>
+  </div>
+
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+</div>
